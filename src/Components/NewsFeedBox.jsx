@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = state => state
 const mapDispatchToProps = dispatch => ({
-    Newsfeed: () => dispatch({ type: "LOAD_COMMENTS"}),
+    comment: () => dispatch({ type: "LOAD_COMMENTS"}),
 }); 
 
 let Toaststyle ={
@@ -107,6 +107,7 @@ componentDidMount= async ()=>{
                 body: JSON.stringify(this.comment)
             }).then(res => {
                 console.log("edit", res);
+                comment: this.props.comment()
                 this.props.refresh();
             });
 
@@ -116,6 +117,7 @@ componentDidMount= async ()=>{
                 body: JSON.stringify(this.comment)
             }).then(res => {
                 console.log("Your comment has been submitted", res);
+                comment: this.props.comment()
                 this.props.refresh()
             });
         }

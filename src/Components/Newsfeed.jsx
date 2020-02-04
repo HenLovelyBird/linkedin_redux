@@ -69,7 +69,8 @@ class Newsfeed extends React.Component {
         let news = await response.json()
         console.log(news);
         this.setState({
-            Newsfeed: news.posts.reverse()
+            Newsfeed: this.props.Newsfeed()
+            // Newsfeed: news.posts.reverse()
 
        
         // let response = await fetch("http://localhost:7000/posts/")
@@ -106,7 +107,7 @@ class Newsfeed extends React.Component {
                          </ToastBody> */}
                         </Toast>
                     </div>
-                    <Row> {this.state.Newsfeed && this.state.Newsfeed.map((news, index) =>
+                    <Row> {this.Newsfeed && this.Newsfeed.map((news, index) =>
                         <NewsFeedBox newsData={news} key={index} postId={news._id}/>
                     )}
                
