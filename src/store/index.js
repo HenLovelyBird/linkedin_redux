@@ -7,7 +7,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const initialState = {
     newsfeed: {
-        Newsfeed: [],
+        news: [],
         comment: {}
     },
     profile: {

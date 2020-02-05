@@ -1,9 +1,11 @@
 export default function(state = {}, action) {
+    console.log(action)
     switch(action.type) {
         case "LOAD_NEWSFEED":
             return {
                 ...state,
-                Newsfeed: action.payload
+                news: action.payload.posts,
+                totalPosts: action.payload.Total
             }
         case "LOAD_COMMENTS":
             return {

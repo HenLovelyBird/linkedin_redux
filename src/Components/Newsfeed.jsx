@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = state => state
 const mapDispatchToProps = dispatch => ({
-    Newsfeed: () => dispatch({ type: "LOAD_NEWSFEED"}),
+    loadNewsfeed: (news) => dispatch({ type: "LOAD_NEWSFEED", payload: news}),
 }); 
 
 let Toaststyle = {
@@ -68,19 +68,20 @@ class Newsfeed extends React.Component {
         let response = await fetch("https://linkedinmockup.herokuapp.com/posts/")
         let news = await response.json()
         console.log(news);
-        this.setState({
-            Newsfeed: this.props.Newsfeed()
-            // Newsfeed: news.posts.reverse()
+        this.props.loadNewsfeed(news)
+        // this.setState({
+        //     Newsfeed: this.props.Newsfeed()
+        //     // Newsfeed: news.posts.reverse()
 
        
-        // let response = await fetch("http://localhost:7000/posts/")
-        // console.log(response)
-        // let news = await response.json()
-        // console.log(news);
-        // this.setState({
-        //     Newsfeed: news.posts
+        // // let response = await fetch("http://localhost:7000/posts/")
+        // // console.log(response)
+        // // let news = await response.json()
+        // // console.log(news);
+        // // this.setState({
+        // //     Newsfeed: news.posts
 
-        })
+        // })
     };
     render() {
         console.log(this.state);
@@ -107,7 +108,7 @@ class Newsfeed extends React.Component {
                          </ToastBody> */}
                         </Toast>
                     </div>
-                    <Row> {this.Newsfeed && this.Newsfeed.map((news, index) =>
+                    <Row> {this.props.newsfeed.news && this.props.newsfeed.news.map((news, index) =>
                         <NewsFeedBox newsData={news} key={index} postId={news._id}/>
                     )}
                
