@@ -21,7 +21,7 @@ class Profile extends React.Component {
           <div className="col my-5" fluid>
             <img 
               onClick={this.setModal}
-              src={this.props.profile.imageUrl}
+              src="https://picsum.photos/200"
               alt="profile pic"
               id="profilepic"
             />

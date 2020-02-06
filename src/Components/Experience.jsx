@@ -14,7 +14,7 @@ const mapDispatchToProps = dispatch => ({
 
 class Experience extends React.Component {
   state = {
-    // experiences: "",
+    experiences: "",
     modalOpen: false
   };
 
@@ -73,16 +73,16 @@ class Experience extends React.Component {
   }
 
   componentDidMount = async () => {
-    let username = "user16";
-    let password = "c9WEUxMS294hN6fF";
-    let token = btoa(username + ":" + password);
+    // let username = user16;
+    // let password = "c9WEUxMS294hN6fF";
+    // let token = btoa(username + ":" + password);
     let response = await fetch(
-      "http://localhost:7000/profiles/admin1/experiences",
-      {
+      "https://linkedinmockup.herokuapp.com/experiences/:username", {
         method: "GET",
-        headers: {
-          Authorization: "Basic " + token
-        }
+      //   headers: {
+      //     Authorization: "Basic " + token
+      //   }
+      // }
       }
     );
     let exp = await response.json();
@@ -92,4 +92,4 @@ class Experience extends React.Component {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Experience);
+export default Experience;

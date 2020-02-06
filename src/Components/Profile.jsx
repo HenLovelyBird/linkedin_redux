@@ -7,16 +7,11 @@ import BottomProfile from "./ProfileComponents/BottomProfile";
 import Experience from "./Experience";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import { connect } from "react-redux";
 
-const mapStateToProps = state => state
-const mapDispatchToProps = dispatch => ({
-    profileComponent: () => dispatch({ type: "LOAD_PROFILES"}),
-}); 
 
 class Profile extends React.Component {
   state = {
-  //   profile: {},
+    profile: {},
     modalOpen: false,
     dropdownOpen: false
   };
@@ -63,10 +58,10 @@ class Profile extends React.Component {
         </Container>
 
 {/* Bio Section */}
-        {this.props.profile.bio ? (
+        {this.state.profile.bio ? (
           <>
             <Container flex className="aboutuscontainer">
-              <AboutUs profileBio={this.props.profile.bio} />
+              <AboutUs profileBio={this.state.profile.bio} />
             </Container>
           </>
         ) : (
@@ -112,9 +107,10 @@ class Profile extends React.Component {
     // let password = "c9WEUxMS294hN6fF";
     // let token = btoa(username + ":" + password);
     //let user = localStorage.getItem('username')
-    let user =  "jeff"
+    // let user =  "jeff"
     let response = await fetch(
-      "http://localhost:7000/profiles/username/".concat(user),{
+      "https://linkedinmockup.herokuapp.com/profiles/",{
+        // username/".concat(user)
         method: "GET",
         // headers: {
         //   Authorization: "Basic " + token
@@ -131,4 +127,4 @@ class Profile extends React.Component {
 
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default Profile;
