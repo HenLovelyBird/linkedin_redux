@@ -166,7 +166,7 @@ code {
   height: 51px;
 }
 .profile-image-div{
-  background-image: url("/assets/img/sapa.jpg");
+  background-image: url("https://picsum.photos/200");
   background-size: cover;
   margin-left: 27px !important;
   border-radius: 50%;

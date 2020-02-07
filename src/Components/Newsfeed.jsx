@@ -61,10 +61,9 @@ class Newsfeed extends React.Component {
     //     }
     // }
     componentDidMount = async () => {
-
-         let username = "user21"
-         let password = "2ruxa4MRJdUgg6cz"
-         let token = btoa(username + ":" + password)
+        //  let username = "user21"
+        //  let password = "2ruxa4MRJdUgg6cz"
+        //  let token = btoa(username + ":" + password)
         let response = await fetch("https://linkedinmockup.herokuapp.com/posts/")
         let news = await response.json()
         console.log(news);
@@ -100,7 +99,10 @@ class Newsfeed extends React.Component {
                             <ToastHeader>
                                 Click on the Pencil to Post Something!
                                 <div className="mx-5 float-right">
-                                    <FaPencilAlt size={15} style={pencil} style={{position: "float-right"}}onClick={this.setModal} />
+                                    <FaPencilAlt size={15} 
+                                    style={pencil} 
+                                    style={{position: "float-right"}}
+                                    onClick={this.setModal} />
                                 </div>
                             </ToastHeader>
                             {/* <ToastBody>

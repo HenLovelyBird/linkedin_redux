@@ -88,10 +88,10 @@ componentDidMount= async ()=>{
         
     // we are doing this to make the delete work autonmatically withouy refreshing the page
     delete = async()=>{
-        let username = "user21";
-        let password = "2ruxa4MRJdUgg6cz";
-        let token = btoa(username + ":" + password);
-        let response = await fetch("http://localhost:7000/posts/" + this.props.newsData._id,{
+        // let username = "user21";
+        // let password = "2ruxa4MRJdUgg6cz";
+        // let token = btoa(username + ":" + password);
+        let response = await fetch("https://linkedinmockup.herokuapp.com/posts/" + this.props.newsData._id,{
               method: "DELETE"
           }) 
           console.log(response)
@@ -102,7 +102,7 @@ componentDidMount= async ()=>{
 
     submit = async ()=>{
         if (this.props.comment._id) {
-            await fetch("http://localhost:7000/comments/:postId/:commentId" + this.props.postId, {
+            await fetch("https://linkedinmockup.herokuapp.com/comments/:postId/", {
                 method: "PUT",
                 body: JSON.stringify(this.comment)
             }).then(res => {
@@ -112,7 +112,7 @@ componentDidMount= async ()=>{
             });
 
         } else {
-            await fetch("http://localhost:7000/comments/" + this.props.postId, {
+            await fetch("https://linkedinmockup.herokuapp.com/comments/:postId/", {
                 method: "POST",
                 body: JSON.stringify(this.comment)
             }).then(res => {
@@ -126,18 +126,16 @@ componentDidMount= async ()=>{
     };
     
 
-//     postComment = async()=>{
-//         get id of post
-//         map
-//         let response = await fetch("http://localhost:7000/comments/:postId/",{
-//             method: "POST"
-//         })
-//         if (response )
-//         console.log(response)
-//         this.setState({postComment: true})
-//         return response
-//     }
-// get id of the post
+    postComment = async()=>{
+        let response = await fetch("https://linkedinmockup.herokuapp.com/comments/:postId/",{
+            method: "POST"
+        })
+        if (response )
+        console.log(response)
+        this.setState({postComment: true})
+        return response
+    }
+
 
     // uploadPucture=async()=> {
     //     var formData = new FormData();

@@ -1,5 +1,6 @@
   import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Input } from 'reactstrap';
+import { connectAdvanced } from 'react-redux';
 
 class  NewsModel extends React.Component {
   intervalId;
@@ -9,7 +10,9 @@ class  NewsModel extends React.Component {
       text: '',
       isPost: false,
       // We are doing this to make the "POST" work autonmatically without refreshing the page
-  }
+
+    }
+  // setModal = () => this.setState({ modalOpen = !this.state.modalOpen})
 
       setModal = () => {
       if(this.state.modalOpen === true){
@@ -22,13 +25,13 @@ class  NewsModel extends React.Component {
           })
       }
   }
-  post = async() => {
+  newPost = async() => {
     let obj = {
       text: this.state.text
     }
     if(this.state.text.length > 2){
       let response = await fetch(
-        "http://localhost:7000/posts/",{
+        "https://linkedinmockup.herokuapp.com/posts/",{
           method: "POST",
           body: JSON.stringify(obj),
         }
@@ -47,8 +50,8 @@ class  NewsModel extends React.Component {
           <Input type="text" name="text" onChange={(data) =>{this.setState({ text: data.target.value }) }} />
           </ModalBody>
           <ModalFooter>
-            <Button onClick={this.setModal} color="primary">Close</Button>
-            <Button  onClick={this.post} color="primary">Post</Button>
+            <Button onClick={!this.state.modalOpen} color="primary">Close</Button>
+            <Button  onClick={this.newPost} color="primary">Post</Button>
           </ModalFooter>
         </Modal>
         ): ("");

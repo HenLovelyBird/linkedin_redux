@@ -28,16 +28,16 @@ class Profile extends React.Component {
   };
 
   render() {
-    return (<>
-        <Container fluid id="profilecontainer">
+    return (<div>
+      <Container fluid id="profilecontainer">
           <div>
             {this.state.profile && (
               <div>
                 <ProfileHeader profile={this.state.profile} />
               </div>
             )}
-
-            <div>
+          </div>
+          <div>
               {this.state.modalOpen && (
                 <ProfileModal
                   setmodal={this.setModal}
@@ -45,56 +45,33 @@ class Profile extends React.Component {
                   open={this.state.modalOpen}
                 />
               )}
-            </div> 
+          </div> 
               
             <FontAwesomeIcon
               onClick={this.setModal}
               className="fapenciltoeditform"
               icon={faPencilAlt}
             />
-
-          <BottomProfile />
-          </div>
-        </Container>
-
-{/* Bio Section */}
-        {this.state.profile.bio ? (
-          <>
-            <Container flex className="aboutuscontainer">
-              <AboutUs profileBio={this.state.profile.bio} />
-            </Container>
-          </>
-        ) : (
-          <>
-            <div>Bio empty!</div>
-          </>
-        )}
-
-        <Container flex className="experiencecontainer">
-
-{/* Experience Section */}
-          <Experience />
-        </Container>
-      
-        </>);
+      </Container>
+      </div>);
 
   }
-    componentDidUpdate = async(prevProps, prevState) => {
-        // if this.state.profile.image 
-        // this.fetchingNewPic()
-    }
+    // componentDidUpdate = async(prevProps, prevState) => {
+    //     if this.state.profile.imageUrl 
+    //     this.fetchingNewPic()
+    // }
     
     // fetchingNewPic = async() => {
-    //     let username = "user16";
-    //     let password = "c9WEUxMS294hN6fF";
-    //     let token = btoa(username + ":" + password);
-    //     let response = await fetch(
-    //       "https://strive-school-testing-apis.herokuapp.com/api/profile/me",{
-    //         method: "GET",
-    //         headers: {
-    //           Authorization: "Basic " + token
-    //         }
-    //       }
+        // let username = "user16";
+        // let password = "c9WEUxMS294hN6fF";
+        // let token = btoa(username + ":" + password);
+        // let response = await fetch(
+        //   "https://picsum.photos/200",{
+        //     method: "GET",
+          //   headers: {
+          //     Authorization: "Basic " + token
+          //   }
+          // }
     //     );
     //     let prof = await response.json();
     //     this.setState({
@@ -103,24 +80,15 @@ class Profile extends React.Component {
     // }
 
   componentDidMount = async () => {
-    // let username = "user16";
-    // let password = "c9WEUxMS294hN6fF";
-    // let token = btoa(username + ":" + password);
-    //let user = localStorage.getItem('username')
-    // let user =  "jeff"
     let response = await fetch(
-      "https://linkedinmockup.herokuapp.com/profiles/",{
-        // username/".concat(user)
+      "https://linkedinmockup.herokuapp.com/profiles/5e2b0f3b27480c54f90d34c3",{
         method: "GET",
-        // headers: {
-        //   Authorization: "Basic " + token
-        // }
       }
     );
-    let prof = await response.json();
-    console.log(prof);
+    let profile = await response.json();
+    console.log(profile);
     this.setState({
-      profile: prof
+      profiles: profile
     });
   }
 }

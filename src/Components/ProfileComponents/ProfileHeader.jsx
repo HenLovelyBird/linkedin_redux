@@ -27,12 +27,8 @@ class Profile extends React.Component {
             />
           </div>
 
-          {this.state.modalOpen && <ModalPicture profile={this.props.profile} open={this.state.modalOpen} modalOpen={this.setModal}/>}
-          {/* <FontAwesomeIcon
-            onClick={this.setModal}
-            className="fapencil"
-            icon={faPencilAlt}
-          /> */}
+          {this.state.modalOpen && <ModalPicture profile={this.props.profile} 
+          open={this.state.modalOpen} modalOpen={this.setModal}/>}
 
           <div className="col">
             <ProfileNav profileInfo={this.props.profile}/>
@@ -48,6 +44,8 @@ class Profile extends React.Component {
       </>
     );
   }
+
+  componentDidUpdate
 }
 
 export default Profile;

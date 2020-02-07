@@ -46,11 +46,6 @@ class ProfileNav extends React.Component {
       
             <div>{this.state.modalOpen && <ProfileModal 
                 setmodal={this.setModal} profile={this.props.profileInfo} open={this.state.modalOpen} />}</div> 
-           {/* <FontAwesomeIcon
-            onClick={() => this.setState({ modalOpen: !this.state.modalOpen})}
-            className="fapencilprofilenavtoeditform"
-            icon={faPencilAlt}
-          /> */}
 
         </Row>
        </Container>

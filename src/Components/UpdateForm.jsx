@@ -68,7 +68,7 @@ if(response.ok){
           ></img>
         </div>
         <img
-          src={this.props.profileInfo.image}
+          src="https://picsum.photos/200"
           className="modal-img"
           alt="profile pic"
         />
