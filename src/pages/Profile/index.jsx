@@ -19,12 +19,10 @@ class Profile extends Component {
       }
 
     render() { 
-        return (<div>
+        return (<>
 {/* profile and profileheader */}
             <Container fluid id="profilecontainer">
-                <div>
                     {this.state.profile && (
-                <div>
             <Row>
                 <div className="col my-5" fluid>
                     <img 
@@ -38,22 +36,30 @@ class Profile extends Component {
 {/* ModalPicure Component*/}
           {this.state.modalOpen && <ModalPicture profile={this.props.profile} 
           open={this.state.modalOpen} modalOpen={this.setModal}/>}
-
-          <div className="col">
-            <ProfileNav profileInfo={this.props.profile}/>
-          </div>
-          <div className="col">
-            <h2 id="profname">
-              {this.props.profile.firstname} {this.props.profile.surname}
-            </h2>
-            <h6 id="profarea">{this.props.profile.area} </h6>
-            <h6 id="proftitle">{this.props.profile.title} </h6>
-          </div>
-        </Row>
-              </div>
-            )}
-          </div>
           
+{/* ProfileNav */}
+<Container fluid className="btngroup">
+      <Row>
+        <div className="col"><ButtonDropdown isOpen={this.state.dropdownOpen} >
+          <DropdownToggle onClick={() => this.setState({ dropdownOpen: !this.state.dropdownOpen})} 
+          caret className="dropdownbtns btn-primary">Add Profile Section</DropdownToggle>
+          <DropdownMenu>
+            <DropdownItem header>Intro</DropdownItem>
+            <DropdownItem disabled>About</DropdownItem>
+            <DropdownItem>Background</DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem>Skills</DropdownItem>
+            <DropdownItem>Accomplishments</DropdownItem>
+            <DropdownItem>Additional information</DropdownItem>
+            <DropdownItem>Supported languages</DropdownItem>
+          </DropdownMenu>
+        </ButtonDropdown></div>
+
+        <div className="col"><Button className="btn btn-primary" id="morebtn">More...</Button></div>
+        </Row>
+       </Container>
+          
+{/* ProfileModal      */}          
           <div>
               {this.state.modalOpen && (
                 <ProfileModal
@@ -69,8 +75,8 @@ class Profile extends Component {
               className="fapenciltoeditform"
               icon={faPencilAlt}
             />
-      </Container>          
-    </div>)
+      
+    </>)
     }
 
     componentDidMount = async () => {
