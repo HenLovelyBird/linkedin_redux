@@ -1,9 +1,9 @@
 import React from "react";
-import ProfileHeader from "./ProfileComponents/ProfileHeader";
-import AboutUs from "./ProfileComponents/AboutUs";
+import ProfileHeader from "./ProfileHeader";
+import AboutUs from "./AboutUs";
 import ProfileModal from "./ProfileModal";
 import { Container } from "reactstrap";
-import BottomProfile from "./ProfileComponents/BottomProfile";
+import BottomProfile from "./BottomProfile";
 import Experience from "./Experience";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";

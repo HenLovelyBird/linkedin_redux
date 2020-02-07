@@ -1,7 +1,7 @@
 import React from 'react';
 import Loader from 'react-loader-spinner'
-import UsersList from './UsersList'
-import SearchedUsers  from './SearchedUsers'
+import UsersList from '../UsersList'
+import SearchedUsers  from '../SearchedUsers'
 import '../index.css'
 let loaderStyle = {
     position: "relative",

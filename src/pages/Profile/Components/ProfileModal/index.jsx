@@ -1,6 +1,6 @@
 import React from 'react';
 import {Modal} from 'reactstrap';
-import UpdateForm from './UpdateForm';
+import UpdateForm from '../../../Components/UpdateForm';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import '../index.css'

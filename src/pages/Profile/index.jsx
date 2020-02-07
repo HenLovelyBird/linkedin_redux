@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import "../../index.css"s
+import "../../index.css"
 
 class Profile extends Component {
     state = {  
@@ -20,6 +20,7 @@ class Profile extends Component {
 
     render() { 
         return (<div>
+{/* profile and profileheader */}
             <Container fluid id="profilecontainer">
                 <div>
                     {this.state.profile && (
@@ -33,7 +34,8 @@ class Profile extends Component {
                     id="profilepic"
                     />
                  </div>
-
+                 
+{/* ModalPicure Component*/}
           {this.state.modalOpen && <ModalPicture profile={this.props.profile} 
           open={this.state.modalOpen} modalOpen={this.setModal}/>}
 
@@ -51,6 +53,7 @@ class Profile extends Component {
               </div>
             )}
           </div>
+          
           <div>
               {this.state.modalOpen && (
                 <ProfileModal
@@ -69,6 +72,7 @@ class Profile extends Component {
       </Container>          
     </div>)
     }
+
     componentDidMount = async () => {
         let response = await fetch(
           "https://linkedinmockup.herokuapp.com/profiles/5e2b0f3b27480c54f90d34c3",{
